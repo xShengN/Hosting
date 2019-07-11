@@ -1,0 +1,56 @@
+body  {
+  margin: 0;
+  padding: 0;
+  font: normal 13px arial, helvetica, sans-serif;
+  background: #fff;
+  }
+ 
+#menu {
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+ 
+#menu ul  {
+  list-style: none;
+  margin: 0;
+  }
+ 
+#menu ul li {
+  margin: 0 auto;
+  float: left;
+  }
+ 
+#menu ul li a {
+  width: 138px;
+  font-weight:bold;
+  font-size:1.5em;
+  text-align: center;
+  line-height: 44px;
+  display:block;
+  text-decoration: none
+  }
+ 
+#menu ul li a:hover {
+  color:#fff;
+  }
+ 
+#Regisrar a {
+  border-bottom:5px solid rgb(39, 129, 231);
+  color: rgb(39, 129, 231)
+  }
+ 
+#Lista a {
+  border-bottom:5px solid #f80;
+  color: #f80;
+  }
+ 
+#Regisrar a:hover {
+  background:rgb(39, 129, 231);
+  }
+ 
+#Lista a:hover {
+  background:#f80;
+  }

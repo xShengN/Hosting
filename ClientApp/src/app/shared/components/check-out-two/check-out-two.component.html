@@ -1,0 +1,44 @@
+<app-nav-menu></app-nav-menu>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3" *ngIf="reservation && roomre">
+                <h2>Registro de salida Hotel Corona</h2>
+                <br>
+                <div class="form-group">
+                    <label>Indentificaci&oacute;n: {{reservation.id}} y Nombre: {{reservation.name}} {{reservation.lastname}}</label>
+                </div>
+                <div class="form-group" >
+                    <button *ngIf="this.i===0" type="submit" class="btn btn-primary" (click)="load()">Cargar habitaciones</button>
+                  </div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Número de la habitaci&oacute;n</th>
+                        <th>Tipo de habitaci&oacute;n:</th>
+                        <th>Seleccionar:</th>
+                      </tr>
+                    </thead>
+                    <ng-container *ngFor="let pather of pathers">
+                    <tbody *ngIf="room">
+                      <tr *ngIf="validar(pather.idHigh)===true">
+                        <td>{{room.id}}</td>
+                        <td>{{room.type}}</td>
+                        <td><a routerLink="/checkin/{{this.reservation.id}}/{{this.room.id}}"> Seleccionar </a></td>
+                      </tr>
+                    </tbody>
+                  </ng-container>
+                  </table>
+                <div class="form-group">
+                  <label>Observaciones: </label>
+                    <input type="text" class="form-control" [(ngModel)]="observaciones" placeholder="Ingrese las respectivas observaciones" required>
+                </div>
+                <div class="form-group" *ngIf="this.i===1">
+                    <button type="submit" class="btn btn-primary" (click)="delete()">Finalizar</button>
+                </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>

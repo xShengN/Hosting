@@ -1,0 +1,33 @@
+<app-nav-home></app-nav-home>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <h2>Consultar las habitaciones</h2>
+                <br>
+                    <br>
+                      <table class="table table-dark table-striped">
+                          <thead>
+                            <tr>
+                              <th>Número de la habitaci&oacute;n</th>
+                              <th>Tipo de habitaci&oacute;n:</th>
+                              <th>Ocupada:</th>
+                              <th>Ver más:</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let room of rooms" >
+                            <tr>
+                              <td>{{room.id}}</td>
+                              <td>{{room.type}}</td>
+                              <th>
+                                  <span *ngIf="room.avidable===true;"> No</span>
+                                  <span *ngIf="room.avidable===false;"> Sí</span>
+                            </th>
+                              <td><a > Seleccionar </a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+</div>

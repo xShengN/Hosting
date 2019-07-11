@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <h1>Bienvenido al sistema de gesti&oacute;n del Hotel Corona</h1>
+                <p>Sistema &uacute;nicamente para empleados</p>
+                <h3>Seg&uacute;n las credenciales administrativas usted podr&aacute; hacer:</h3>
+                <ul>
+                    <li><a [routerLink]="['/checkin']">Nuevos ingresos al hotel (Check In)</a></li>
+                    <li><a [routerLink]="['/checkout']">Nuevos retiros al hotel (Check Out)</a></li>
+                    <li><a [routerLink]="['/consultar']">Consultas de los cuartos</a></li>
+                    <li><a [routerLink]="['/liquidar']">Liquidaciones</a></li>
+                </ul>
+                <p><a [routerLink]="['/login']">Salir</a></p>                
+            </div>
+        </div>
+    </div>
+</div>

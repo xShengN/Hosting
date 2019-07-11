@@ -1,0 +1,28 @@
+<app-nav-home></app-nav-home>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <h2>Consultar los usuarios</h2>
+                <br>
+                    <br>
+                      <table class="table table-dark table-striped">
+                          <thead>
+                            <tr>
+                              <th>ID:</th>
+                              <th>Nombre:</th>
+                              <th>Ver más:</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let users of userss" >
+                            <tr>
+                              <td>{{users.id}}</td>
+                              <td>{{users.firstName}} {{users.lastname}}</td>
+                              <td><a>Seleccionar</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+</div>

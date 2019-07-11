@@ -1,0 +1,22 @@
+<app-nav-menu></app-nav-menu>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4.5 offset-sm-4">
+                <h5>Confirmar:</h5>
+                <select class="form-control mb-2 mr-sm-2" [(ngModel)]="auxidperson">
+                    <ng-container *ngFor="let pather of pathers">
+                    <option  *ngIf="pather.idHigh===this.idHigh;">
+                        {{pather.id}}
+                    </option>
+                 </ng-container>
+                  </select>  
+                <div class="form-inline">
+                <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="auxid" placeholder="Ingrese el n&uacute;mero de identificaci&oacute;n" disabled>
+                <button type="submit" class="btn btn-primary mb-2 mr-sm-2" (click)="update()">Aceptar</button>
+                <button type="submit" class="btn btn-primary mb-2"(click)="goBack()">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

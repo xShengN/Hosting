@@ -1,0 +1,32 @@
+<app-nav-home></app-nav-home>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1">
+                <h2>Consultar las reservas</h2>
+                <br>
+                    <br>
+                      <table class="table table-dark table-striped">
+                          <thead>
+                            <tr>
+                              <th>Número de identificación:</th>
+                              <th>Nombre:</th>
+                              <th>Fecha de ingreso:</th>
+                              <th>Fecha de salida:</th>
+                              <th>Ver más:</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let reservation of reservations" >
+                            <tr>
+                              <td>{{reservation.id}}</td>
+                              <td>{{reservation.name}} {{reservation.lastname}}</td>
+                              <td>{{reservation.datein}}</td>
+                              <td>{{reservation.dateout}}</td>
+                              <td><a>Seleccionar</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+</div>

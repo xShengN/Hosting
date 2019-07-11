@@ -1,0 +1,22 @@
+<app-nav-home></app-nav-home>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="form-group">
+                    <label>Número de la habitación:</label>
+                      <input type="number" class="form-control" [(ngModel)]="id" placeholder="Ingrese el n&uacute;mero de la habitaci&oacute;n" required>
+                  </div>
+                <div class="form-group">
+                  <label>Tipo de habitaci&oacute;n: </label>
+                    <select class="form-control" [(ngModel)]="type">
+                      <option>Normal</option>
+                      <option>Premium</option>
+                      <option>Doble</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="addRoom()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
