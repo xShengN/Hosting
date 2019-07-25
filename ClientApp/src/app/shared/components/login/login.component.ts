@@ -26,8 +26,14 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/home');
       },
       err => {
+        if (err.status == 404 ){
+          alert ('Usuario incorrecto')
+        }
+        else {
+          console.log(err);
+        }
         if(err.status == 400) {
-          alert ('Contraseña incorrecta o usuario.')
+          alert ('Contraseña incorrecta')
         }
         else {
           console.log(err);

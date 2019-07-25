@@ -55,7 +55,7 @@ namespace Hotel.Controllers
             public async Task<ActionResult> Login(Users user){
                 var users = await _context.Users.FindAsync(user.Id);
                 if (users == null){
-                    return BadRequest( new {message= "Username doesn't exist"});
+                    return NotFound( new {message= "Username doesn't exist"});
                 }
                 else {
                     if (users.Password.Equals(user.Password)){

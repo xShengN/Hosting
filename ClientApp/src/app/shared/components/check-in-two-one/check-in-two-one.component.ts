@@ -23,7 +23,6 @@ export class CheckInTwoOneComponent implements OnInit {
 
   addPatherM(){
     this.addPather=1;
-    this.added=1;
   }
 
   more(){
@@ -33,6 +32,8 @@ export class CheckInTwoOneComponent implements OnInit {
   }
 
   add(){
+    
+    this.added=1;
     this.acompañanteService.addAcompañante(this.pather).subscribe(pather => (alert("Se ha agregado correctamente")))
   }
 
