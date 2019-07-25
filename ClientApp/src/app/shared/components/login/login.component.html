@@ -5,14 +5,14 @@
                 <h2>Hotel Corona</h2>
                     <div class="form-group">
                         <label for="users.username">Id:</label>
-                        <input type="text" [(ngModel)]="id" placeholder="Ingrese el Id" class="form-control"/>
+                        <input type="text" [(ngModel)]="users.id" placeholder="Ingrese el Id" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="users.password">Contraseña:</label>
-                        <input type="text" [(ngModel)]="password" placeholder="Ingrese la contraseña" class="form-control" />
+                        <input type="password" [(ngModel)]="users.password" placeholder="Ingrese la contraseña" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <button (click)="validation()" [routerLink]="['/home']" class="btn btn-primary">Ingresar</button>
+                        <button (click)="validation()" class="btn btn-primary">Ingresar</button>
                         <a [routerLink]="['/preregister']" class="btn btn-link">Registrar</a>
                     </div>         
             </div>

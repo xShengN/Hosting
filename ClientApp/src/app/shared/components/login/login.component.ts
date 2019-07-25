@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { Users } from 'src/app/models/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +13,28 @@ export class LoginComponent implements OnInit {
   password:string;
   users:Users;
 
-  constructor(private usersservice:UsersService) { }
+  constructor(private usersservice:UsersService, private router: Router) { }
 
   ngOnInit() {
+    this.users = {id:0, password:'', firstName:'', lastname:''}
   }
 
   validation(){
-    this.usersservice.getbyId(this.id).subscribe(users => this.users = users)
-    if (this.users.id==this.id && this.users.password == this.password){
-      
-    }
+    this.usersservice.login(this.users).subscribe(
+      (res:any)=> {
+        localStorage.setItem('token', res.token);
+        this.router.navigateByUrl('/home');
+      },
+      err => {
+        if(err.status == 400) {
+          alert ('Contraseña incorrecta o usuario.')
+        }
+        else {
+          console.log(err);
+        }
+      }
+    );
   }
+
   
 }

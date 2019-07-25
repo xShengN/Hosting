@@ -32,6 +32,7 @@ import { AdminViewUsersComponent } from './private/components/admin-view-users/a
 import { AdminChangeRoomsComponent } from './private/components/admin-change-rooms/admin-change-rooms.component';
 import { AdminAddRoomComponent } from './private/components/admin-add-room/admin-add-room.component';
 import { CheckInTwoOneComponent } from './shared/components/check-in-two-one/check-in-two-one.component';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -69,24 +70,24 @@ import { CheckInTwoOneComponent } from './shared/components/check-in-two-one/che
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent, pathMatch: 'full' },
-      { path: 'home', component: HomePageComponent },
+      { path: 'home', component: HomePageComponent, canActivate:[AuthGuard] },
       { path: 'register', component: RegisterComponent },
       { path: 'preregister', component: PreregComponent },
-      { path: 'checkin', component: CheckInComponent },
-      { path: 'checkout', component: CheckOutComponent },
-      { path: 'consultar', component: ConsultarComponent },
-      { path: 'liquidar', component: LiquidarComponent },
-      { path: 'checkout/:id', component:CheckOutTwoComponent },
-      { path: 'checkin/:id', component: CheckInTwoComponent},
-      { path: 'checkin/:id/addMore', component: CheckInTwoOneComponent },
-      { path: 'checkin/:idPerson/:id', component: CheckinthreeComponent},
-      { path: 'register/:id', component: AdminRegisterComponent },
-      { path: 'adhome', component:AdminHomeComponent },
-      { path: 'viewRooms', component:AdminViewRoomsComponent},
-      { path: 'viewReservations', component: AdminViewReservationsComponent},
-      { path: 'viewUsers', component: AdminViewUsersComponent},
-      { path: 'addRoom', component: AdminAddRoomComponent},
-      { path: 'adconsultar', component: AdminConsultarComponent }
+      { path: 'checkin', component: CheckInComponent, canActivate:[AuthGuard]},
+      { path: 'checkout', component: CheckOutComponent, canActivate:[AuthGuard] },
+      { path: 'consultar', component: ConsultarComponent, canActivate:[AuthGuard] },
+      { path: 'liquidar', component: LiquidarComponent, canActivate:[AuthGuard] },
+      { path: 'checkout/:id', component:CheckOutTwoComponent, canActivate:[AuthGuard] },
+      { path: 'checkin/:id', component: CheckInTwoComponent, canActivate:[AuthGuard]},
+      { path: 'checkin/:id/addMore', component: CheckInTwoOneComponent, canActivate:[AuthGuard] },
+      { path: 'checkin/:idPerson/:id', component: CheckinthreeComponent, canActivate:[AuthGuard]},
+      { path: 'register/:id', component: AdminRegisterComponent, canActivate:[AuthGuard] },
+      { path: 'adhome', component:AdminHomeComponent, canActivate:[AuthGuard] },
+      { path: 'viewRooms', component:AdminViewRoomsComponent, canActivate:[AuthGuard]},
+      { path: 'viewReservations', component: AdminViewReservationsComponent, canActivate:[AuthGuard]},
+      { path: 'viewUsers', component: AdminViewUsersComponent, canActivate:[AuthGuard]},
+      { path: 'addRoom', component: AdminAddRoomComponent, canActivate:[AuthGuard]},
+      { path: 'adconsultar', component: AdminConsultarComponent, canActivate:[AuthGuard] }
     ])
   ],
   providers: [],

@@ -44,6 +44,10 @@ export class UsersService {
     return this.http.get<Users>(url);
   }
 
+   login(users : Users) : Observable<any> {
+    return this.http.post<Users>(this.baseUrl+'api/Users/signin', users, httpOptions);
+  }
+
   updateUser(users:Users) : Observable<any> {
     const url = `${this.baseUrl+'api/Users'}/${users.id}`;
     return this.http.put(url, users, httpOptions);

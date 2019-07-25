@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hotel.models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Hotel.Controllers
 {
@@ -45,7 +51,32 @@ namespace Hotel.Controllers
                 await _context.SaveChangesAsync();
                 return CreatedAtAction(nameof(GetUser), new {id = item.Id}, item);
             }
-            //PUT: api/Users/1
+            [HttpPost("signin")]
+            public async Task<ActionResult> Login(Users user){
+                var users = await _context.Users.FindAsync(user.Id);
+                if (users == null){
+                    return BadRequest( new {message= "Username doesn't exist"});
+                }
+                else {
+                    if (users.Password.Equals(user.Password)){
+                        var tokenDescriptor = new SecurityTokenDescriptor {
+                            Subject = new ClaimsIdentity(new Claim []{
+                                new Claim("UserID",users.Id.ToString())
+                            }),
+                            Expires = DateTime.UtcNow.AddDays(1),
+                            SigningCredentials = new SigningCredentials (new SymmetricSecurityKey(Encoding.UTF8.GetBytes("27072000789456123")),SecurityAlgorithms.HmacSha256Signature)
+
+                        };
+                        var tokenHandler = new JwtSecurityTokenHandler();
+                        var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+                        var token = tokenHandler.WriteToken(securityToken);
+                        return Ok(new {token});
+                    }
+                    else {
+                        return BadRequest(new {message = "Password is incorrect"});
+                    }
+                }
+            }
             [HttpPut("{id}")]
             public async Task<IActionResult> PutUser(int id, Users item){
                 if (id != item.Id){
