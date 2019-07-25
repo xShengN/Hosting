@@ -10,12 +10,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CheckInTwoOneComponent implements OnInit {
   pather:Pather;
-
+  addPather:number;
+  added:number;
   constructor(private acompañanteService:AcompañanteService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.addPather=0;
+    this.added=0;
     const id = +this.route.snapshot.paramMap.get('id');
-    this.pather = {id:0, idHigh:id, name:'', lastname:'', sex:'', dateborn:'07/27/200'}
+    this.pather = {id:0, idHigh:id, name:'', lastname:'', sex:'Masculino', dateborn:'07/27/2000'}
+  }
+
+  addPatherM(){
+    this.addPather=1;
+    this.added=1;
+  }
+
+  more(){
+    this.added=0;
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.pather = {id:0, idHigh:id, name:'', lastname:'', sex:'Masculino', dateborn:'07/27/2000'}
   }
 
   add(){
