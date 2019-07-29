@@ -13,15 +13,17 @@
                               <th>Nombre:</th>
                               <th>Fecha de ingreso:</th>
                               <th>Fecha de salida:</th>
+                              <th>Activo:</th>
                               <th>Ver más:</th>
                             </tr>
                           </thead>
                           <tbody *ngFor="let reservation of reservations" >
                             <tr>
-                              <td>{{reservation.id}}</td>
+                              <td>{{reservation.document}}</td>
                               <td>{{reservation.name}} {{reservation.lastname}}</td>
                               <td>{{reservation.datein}}</td>
                               <td>{{reservation.dateout}}</td>
+                              <th>{{reservation.active}}</th>
                               <td><a>Seleccionar</a></td>
                             </tr>
                           </tbody>

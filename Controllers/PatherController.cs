@@ -15,11 +15,11 @@ namespace Hotel.Controllers
         {
             _context = context;
 
-            if (_context.Pather.Count() == 0) {
+         if (_context.Pather.Count() == 0) {
                 
                 _context.Pather.Add(new Pather {Id=49101789, IdHigh=1003265245,Name="Adela", LastName="Martinez", Sex="Femenino", DateBorn="17/07/1979" });
                 _context.SaveChanges();
-            } 
+            }  
         }
 
         [HttpGet]

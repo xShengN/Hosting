@@ -8,14 +8,14 @@ import { ReservationService } from 'src/app/services/reservation.service';
   styleUrls: ['./consultar.component.css']
 })
 export class ConsultarComponent implements OnInit {
-  reservation:Reservation;
+  reservations:Reservation[];
   auxid:number;
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit() {
   }
   getbyId(){
-    this.reservationService.getbyId(this.auxid).subscribe(reservation=>this.reservation=reservation);
+    this.reservationService.getbyId(this.auxid).subscribe(reservations=>this.reservations=reservations);
   }
 
 }

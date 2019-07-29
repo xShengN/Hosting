@@ -24,10 +24,11 @@ namespace Hotel.Controllers
         {
             _context = context;
             
-            if (_context.Users.Count() == 0){
-                _context.Users.Add(new Users { Id= 15475, FirstName = "Santiago", LastName = "Dueñas", Password = "20ZeroTwo."} );
+             if (_context.Users.Count() == 0){
+                _context.Users.Add(new Users { Id= 2707, FirstName = "Santiago", LastName = "Dueñas", Password = "20ZeroTwo."} );
+                _context.Users.Add(new Users { Id= 2807, FirstName = "Samuel", LastName = "Dueñas", Password = "20ZMorningstar."} );
                 _context.SaveChanges();
-            }
+            } 
 
         }
             // GET: api/Users

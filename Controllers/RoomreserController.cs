@@ -15,10 +15,10 @@ namespace Hotel.Controllers
         public RoomreserController(TaskContext context){
             _context = context;
             
-             if (_context.Roomreser.Count() == 0){
+              if (_context.Roomreser.Count() == 0){
                  _context.Roomreser.Add(new Roomreser {Id= 1003265245, IdRoom= 1});
                  _context.SaveChanges();
-             }
+             } 
         }
          //GET: api/Roomreser
         [HttpGet]
@@ -50,7 +50,7 @@ namespace Hotel.Controllers
             }
 
             _context.Roomreser.Remove(Roomreser);
-	    await _context.SaveChangesAsync();
+	        await _context.SaveChangesAsync();
             return NoContent();
             }
     }

@@ -35,14 +35,19 @@ export class ReservationService {
     return this.http.get<Reservation[]>(this.baseUrl+'api/Reservation');
   }
 
-  getbyId(id:number) : Observable<Reservation> {
+  getbyId(id:number) : Observable<Reservation[]> {
     const url = `${this.baseUrl+'api/Reservation'}/${id}`;
-    return this.http.get<Reservation>(url);
+    return this.http.get<Reservation[]>(url);
   }
 
   updateReservation(reservation:Reservation) : Observable<any> {
     const url = `${this.baseUrl+'api/Reservation'}/${reservation.id}`;
     return this.http.put(url, reservation, httpOptions);
+  }
+
+  disableActive(id:number) {
+    const url = `${this.baseUrl+'api/Reservation/disable'}/${id}`;
+    return this.http.put(url, httpOptions);
   }
 
   deleteReservation(reservation : Reservation | number): Observable<Reservation>{

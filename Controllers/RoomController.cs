@@ -16,7 +16,7 @@ namespace Hotel.Controllers
         {
             _context = context;
 
-            if (_context.Room.Count() == 0) {
+          if (_context.Room.Count() == 0) {
                 _context.Room.Add(new Room {Id=1, Avidable=false, Type = "Normal"});
                 _context.Room.Add(new Room {Id=2, Avidable=true, Type = "Normal"});
                 _context.Room.Add(new Room {Id=3, Avidable=true, Type = "Doble"});
@@ -24,7 +24,7 @@ namespace Hotel.Controllers
                 _context.Room.Add(new Room {Id=5, Avidable=true, Type = "Premium"});
                 _context.Room.Add(new Room {Id=6, Avidable=true, Type = "Premium"});
                 _context.SaveChanges();
-            }
+            } 
         }    
         //GET: api/Room
         [HttpGet]

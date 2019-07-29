@@ -29,7 +29,8 @@ namespace Hotel
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TaskContext>(opt =>
-            opt.UseInMemoryDatabase("HotelDB"));
+            opt.UseSqlServer(@"Server=DESKTOP-N0851U0\SQLEXPRESS;Database=HotelDB;Trusted_Connection=True;")
+            );
             services.AddSwaggerDocument(
                 config => {
                 config.PostProcess = document =>

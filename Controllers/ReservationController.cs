@@ -16,10 +16,10 @@ namespace Hotel.Controllers
         {
             _context = context;
 
-            if (_context.Reservation.Count() == 0) {
-                _context.Reservation.Add(new Reservation {Id= 1003265245, Name = "Santiago", Lastname= "Dueñas", Sex="Masculino", DateIn = "06/11/2019",Dateout = "06/13/2019", TypeRoom="Normal"});
+         if (_context.Reservation.Count() == 0) {
+                _context.Reservation.Add(new Reservation {Document= 1003265245, Name = "Santiago", Lastname= "Dueñas", Sex="Masculino", DateIn = "06/11/2019",Dateout = "06/13/2019", TypeRoom="Normal", Active=true});
                 _context.SaveChanges();
-            } 
+            }  
         }
             //GET: api/Reservation
             [HttpGet]
@@ -28,8 +28,8 @@ namespace Hotel.Controllers
             }
             //GET: api/Reservation/1
             [HttpGet("{id}")]
-            public async Task<ActionResult<Reservation>> GetReservation (int id){
-                var reservation = await _context.Reservation.FindAsync(id);
+            public async Task<ActionResult<IEnumerable<Reservation>>> GetReservation (int id){
+                var reservation = await _context.Reservation.Where(e=>e.Document==id).ToListAsync();
                 if (reservation == null){
                     return NotFound();
                 }
@@ -45,6 +45,7 @@ namespace Hotel.Controllers
             //PUT: api/Reservation/1
             [HttpPut("{id}")]
             public async Task<IActionResult> PutReservation(int id, Reservation item){
+
                 if (id != item.Id){
                     return BadRequest();
                 }
@@ -52,6 +53,26 @@ namespace Hotel.Controllers
                 await _context.SaveChangesAsync();
                 return NoContent();
             }
+
+            [HttpPut("disable/{id}")]
+            public async Task<IActionResult> DisableReservation(int id){
+                
+                int aux = _context.Reservation.Count();
+                var item = new Reservation();
+                for (int i=1; i<aux+1; i++){
+                    var auxiliar = await _context.Reservation.FindAsync(i);
+                    if (auxiliar.Document==id){
+                        item = auxiliar;
+                        item.Active=false;
+                        _context.Entry(item).State = EntityState.Modified;
+                        await _context.SaveChangesAsync();
+                        return NoContent();
+                    }
+                }
+                return BadRequest();
+
+            }
+
 
             //DELETE: api/Reservation/1
             [HttpDelete("{id}")]
@@ -63,7 +84,7 @@ namespace Hotel.Controllers
                 }
 
                 _context.Reservation.Remove(Reservation);
-		await _context.SaveChangesAsync();
+		        await _context.SaveChangesAsync();
                 return NoContent();
             }
     }

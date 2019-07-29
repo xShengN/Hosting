@@ -16,7 +16,7 @@ import { AcompañanteService } from 'src/app/services/acompañante.service';
   styleUrls: ['./check-out-two.component.css']
 })
 export class CheckOutTwoComponent implements OnInit {
-   reservation:Reservation;
+   reservations:Reservation[];
    room:Room;
    roomre:Roomreser;
    roomres:Roomreser[];
@@ -39,7 +39,7 @@ export class CheckOutTwoComponent implements OnInit {
   }
 
   get() : void {
-    this.reservationService.getbyId(this.idaux).subscribe (reservation=> this.reservation = reservation);
+    this.reservationService.getbyId(this.idaux).subscribe (reservations=> this.reservations = reservations);
 
     this.roomreSe.getRoomreserById(this.idaux).subscribe(roomre => this.roomre = roomre);
     
@@ -63,7 +63,9 @@ export class CheckOutTwoComponent implements OnInit {
   delete() : void { 
     this.room = {id:this.i, avidable:true, type: this.room.type};
     this.roomSe.updateRoom(this.room).subscribe();
-    this.roomreSe.delete(this.reservation.id).subscribe();
-    this.reservationService.deleteReservation(this.reservation).subscribe(reservation => this.location.back()); 
+    this.roomreSe.delete(this.idaux).subscribe();
+    this.reservationService.disableActive(this.idaux).subscribe();/* 
+    this.reservationService.deleteReservation(this.reservation).subscribe();  */
+    this.location.back();
   }
 }

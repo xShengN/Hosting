@@ -17,7 +17,7 @@ namespace Hotel.Controllers
             _context = context;
 
             if (_context.Login.Count() == 0) {
-                _context.Login.Add(new Login {Id= 458});
+                _context.Login.Add(new Login {Id= 2707});
                 _context.SaveChanges();
             } 
         }

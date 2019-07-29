@@ -23,16 +23,16 @@
                               <th>Apellido</th>
                               <th>Identificaci&oacute;n</th>
                               <th>Tipo de habitaci&oacute;n</th>
-                              <th>Tiempo restante</th>
+                              <th>Activo</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngIf="reservation">
+                            <tr *ngFor="let reservation of reservations">
                               <td>{{reservation.name}}</td>
                               <td>{{reservation.lastname}}</td>
-                              <td>{{reservation.id}}</td>
+                              <td>{{reservation.document}}</td>
                               <td>{{reservation.typeroom}}</td>
-                              <td>2 d&iacute;as</td>
+                              <td>{{reservation.active}}</td>
                             </tr>
                           </tbody>
                         </table>

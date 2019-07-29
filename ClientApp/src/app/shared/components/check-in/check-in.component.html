@@ -12,7 +12,7 @@
                       <option>Tarjeta de identidad</option>
                       <option>Pasaporte</option>
                     </select>
-                    <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="reservation.id" placeholder="Ingrese el n&uacute;mero de identificaci&oacute;n" required>
+                    <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="reservation.document" placeholder="Ingrese el n&uacute;mero de identificaci&oacute;n" required>
                   </div>
                 <div class="form-inline">
                     <label class="mr-sm-2">Nombre completo:</label>
@@ -51,7 +51,7 @@
                         </div>
                     <div class="form-inline">
                     <button type="submit" class="btn btn-primary" (click)="add()" *ngIf="this.ok===0">Aceptar</button>
-                    <button type="submit" class="btn btn-primary" *ngIf="this.ok===1" routerLink="/checkin/{{reservation.id}}//addMore">Siguiente</button>
+                    <button type="submit" class="btn btn-primary" *ngIf="this.ok===1" routerLink="/checkin/{{reservation.document}}//addMore">Siguiente</button>
                     </div>
                                             
             </div>

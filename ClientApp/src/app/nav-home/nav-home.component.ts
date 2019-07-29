@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-home',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-home.component.css']
 })
 export class NavHomeComponent {
+  constructor(private router: Router){
+
+  }
   isExpanded = false;
 
   collapse() {
@@ -14,5 +18,10 @@ export class NavHomeComponent {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+    logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/'])
   }
 }

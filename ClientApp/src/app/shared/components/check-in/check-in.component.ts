@@ -15,7 +15,7 @@ export class CheckInComponent implements OnInit {
   ok=0;
 
   ngOnInit() {
-    this.reservation = { id:0, name:'', lastname:'', typeroom:'Normal', sex: 'Masculino', datein:'06/11/2019', dateout:'06/14/2019'}
+    this.reservation = { id:0, document:0, name:'', lastname:'', typeroom:'Normal', sex: 'Masculino', datein:'06/11/2019', dateout:'06/14/2019', active:true}
   }
 
   add(){

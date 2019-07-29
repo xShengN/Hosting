@@ -14,7 +14,7 @@ import { RoomreserService } from 'src/app/services/roomreser.service';
 })
 export class CheckInTwoComponent implements OnInit {
   rooms:Room[];
-  reservation:Reservation;
+  reservations:Reservation[];
   roomreser:Roomreser;
   auxrooms:Room;
   roomselected:number;
@@ -33,7 +33,7 @@ export class CheckInTwoComponent implements OnInit {
   getId(){
     const id = +this.route.snapshot.paramMap.get('id');
    /*  const idper = +this.route.snapshot.paramMap.get('idpe'); */
-    this.reservationService.getbyId(id).subscribe(reservation => this.reservation = reservation);/* 
+    this.reservationService.getbyId(id).subscribe(reservations => this.reservations = reservations);/* 
     this.roomService.getRoomById(idper).subscribe(auxrooms => this.auxrooms = auxrooms); */
   }
 
